@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://maven.aliyun.com/nexus/content/groups/public/"
+    }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
+def spring_version = "4.3.27.RELEASE"
+List spring = [
+        "org.springframework:spring-core:$spring_version",
+        "org.springframework:spring-beans:$spring_version",
+        "org.springframework:spring-context:$spring_version",
+        "org.springframework:spring-tx:$spring_version",
+]
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile ('org.fisco-bcos.java-sdk:fisco-bcos-java-sdk:2.7.1')
+    compile spring
+}
+
+
+test {
+    useJUnitPlatform()
+}
