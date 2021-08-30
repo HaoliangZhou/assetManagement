@@ -1,4 +1,1 @@
-
-*.js linguist-language=Solidity
-*.css linguist-language=Solidity
-*.html linguist-language=Solidity
+*.sol linguist-language=Solidity
